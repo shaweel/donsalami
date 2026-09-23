@@ -1,0 +1,23 @@
+{
+	"parent": "donsalami:hub/time/45s",
+	"display": {
+		"icon": {
+			"id": "donsalami:tas"
+		},
+		"title": {
+			"text": "Tool Assisted Speedrun"
+		},
+		"description": {
+			"text": "Leave The Hub in under 40 seconds"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"code_only": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

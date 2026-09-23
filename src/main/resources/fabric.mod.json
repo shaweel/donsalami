@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "donsalami",
+	"version": "${version}",
+	"name": "Don Salami",
+	"description": "salami salami salami salami salami salami salami salami salami salami salami salami salami salami salami salami",
+	"authors": [
+		"shaweel",
+		"elosewer"
+	],
+	"license": "",
+	"icon": "assets/donsalami/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.shaweel.donsalami.DonSalami"
+		],
+		"client": [
+			"me.shaweel.donsalami.client.DonSalamiClient"
+		]
+	},
+	"mixins": [
+		"donsalami.mixins.json",
+		{
+			"config": "donsalami.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

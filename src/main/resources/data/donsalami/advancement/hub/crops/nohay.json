@@ -1,0 +1,23 @@
+{
+	"parent": "donsalami:hub/hub",
+	"display": {
+		"icon": {
+			"id": "minecraft:wheat"
+		},
+		"title": {
+			"text": "Purist"
+		},
+		"description": {
+			"text": "Leave The Hub without mining a hay bale"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"code_only": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

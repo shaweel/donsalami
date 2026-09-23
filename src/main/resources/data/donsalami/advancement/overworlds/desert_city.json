@@ -1,0 +1,40 @@
+{
+	"parent": "donsalami:overworlds/buried_treasure",
+	"display": {
+		"icon": {
+			"id": "minecraft:sandstone"
+		},
+		"title": {
+			"text": "Desert City?"
+		},
+		"description": {
+			"text": "Find an incredibly large desert village"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"criteria": {
+		"city": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"dimension": "minecraft:overworld",
+						"position": {
+							"x": {
+								"min": 99000,
+								"max": 101000
+							},
+							"z": {
+								"min": 99000,
+								"max": 101000
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"parent": "donsalami:hub/hub",
+	"display": {
+		"icon": {
+			"id": "donsalami:max_speed"
+		},
+		"title": {
+			"text": "400 Speed"
+		},
+		"description": {
+			"text": "Leave The Hub in under 55 seconds"
+		},
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"code_only": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

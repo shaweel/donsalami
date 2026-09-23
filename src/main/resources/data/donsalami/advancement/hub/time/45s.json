@@ -1,0 +1,23 @@
+{
+	"parent": "donsalami:hub/time/55s",
+	"display": {
+		"icon": {
+			"id": "donsalami:black_cat"
+		},
+		"title": {
+			"text": "Black Cat Pet"
+		},
+		"description": {
+			"text": "Leave The Hub in under 45 seconds"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"code_only": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

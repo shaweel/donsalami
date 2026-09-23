@@ -1,0 +1,17 @@
+{
+	"required": true,
+	"package": "me.shaweel.donsalami.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"DetectAction",
+		"CameraAccessor",
+		"ScreenAccessor",
+		"ModifyMainMenu"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

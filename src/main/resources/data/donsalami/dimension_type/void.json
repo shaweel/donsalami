@@ -1,0 +1,24 @@
+{
+	"ambient_light": 1.0,
+	"attributes": {
+			"minecraft:gameplay/bed_rule": {
+			"can_set_spawn": "never",
+			"can_sleep": "never"
+		},
+		"minecraft:gameplay/respawn_anchor_works": false,
+		"minecraft:visual/fog_color": "#c0d8ff",
+		"minecraft:gameplay/water_evaporates": true
+	},
+	"coordinate_scale": 1.0,
+	"default_clock": "donsalami:void_clock",
+	"has_ceiling": false,
+	"has_ender_dragon_fight": false,
+	"has_skylight": true,
+	"height": 384,
+	"infiniburn": "#minecraft:infiniburn_overworld",
+	"logical_height": 384,
+	"min_y": -64,
+	"monster_spawn_block_light_limit": 0,
+	"monster_spawn_light_level": 15,
+	"skybox": "overworld"
+}

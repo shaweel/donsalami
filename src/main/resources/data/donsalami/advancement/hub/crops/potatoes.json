@@ -1,0 +1,23 @@
+{
+	"parent": "donsalami:hub/crops/seeds",
+	"display": {
+		"icon": {
+			"id": "minecraft:baked_potato"
+		},
+		"title": {
+			"text": "Technoblade Never Dies"
+		},
+		"description": {
+			"text": "Leave The Hub while only selling baked potatoes"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"code_only": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"parent": "donsalami:hub/crops/nohay",
+	"display": {
+		"icon": {
+			"id": "minecraft:wheat_seeds"
+		},
+		"title": {
+			"text": "Famine"
+		},
+		"description": {
+			"text": "Leave The Hub while only selling seeds"
+		},
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"code_only": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

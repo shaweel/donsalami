@@ -1,0 +1,40 @@
+{
+	"parent": "donsalami:overworlds/elytra",
+	"display": {
+		"icon": {
+			"id": "minecraft:dark_oak_boat"
+		},
+		"title": {
+			"text": "Titanic"
+		},
+		"description": {
+			"text": "Find a shipwreck."
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"criteria": {
+		"shipwreck": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"dimension": "minecraft:overworld",
+						"position": {
+							"x": {
+								"min": 299000,
+								"max": 301000
+							},
+							"z": {
+								"min": 299000,
+								"max": 301000
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

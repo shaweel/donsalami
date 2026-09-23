@@ -1,0 +1,40 @@
+{
+	"parent": "donsalami:overworlds/desert_city",
+	"display": {
+		"icon": {
+			"id": "minecraft:snow_block"
+		},
+		"title": {
+			"text": "New Seed Type?"
+		},
+		"description": {
+			"text": "Find an igloo"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"criteria": {
+		"igloo": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"dimension": "minecraft:overworld",
+						"position": {
+							"x": {
+								"min": -1000,
+								"max": 1000
+							},
+							"z": {
+								"min": -1000,
+								"max": 1000
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

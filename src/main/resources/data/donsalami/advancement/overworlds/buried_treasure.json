@@ -1,0 +1,40 @@
+{
+	"parent": "donsalami:overworlds/shipwreck",
+	"display": {
+		"icon": {
+			"id": "minecraft:chest"
+		},
+		"title": {
+			"text": "Overworld practice?"
+		},
+		"description": {
+			"text": "Appear in your 4th overworld, this time being a buried treasure."
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"criteria": {
+		"owp": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"dimension": "minecraft:overworld",
+						"position": {
+							"x": {
+								"min": 199000,
+								"max": 201000
+							},
+							"z": {
+								"min": 199000,
+								"max": 201000
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

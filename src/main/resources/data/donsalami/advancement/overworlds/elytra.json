@@ -1,0 +1,30 @@
+{
+	"parent": "donsalami:overworlds/root",
+	"display": {
+		"icon": {
+			"id": "minecraft:elytra"
+		},
+		"title": {
+			"text": "Fly High"
+		},
+		"description": {
+			"text": "Enter the nether portal to be greeted by an elytra flying course."
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"criteria": {
+		"elytra": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": "minecraft:elytra"
+					}
+				]
+			}
+		}
+	}
+}

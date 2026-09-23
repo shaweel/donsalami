@@ -1,0 +1,30 @@
+{
+	"parent": "donsalami:hub/hub",
+	"display": {
+		"icon": {
+			"id": "minecraft:netherrack"
+		},
+		"title": {
+			"text": "Finally..."
+		},
+		"description": {
+			"text": "Travel to The Nether"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"nether": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"minecraft:location": {
+						"dimension": "minecraft:the_nether"
+					}
+				}
+			}
+		}
+	}
+}
