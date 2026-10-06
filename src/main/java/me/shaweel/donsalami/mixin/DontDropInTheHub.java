@@ -9,13 +9,14 @@ import me.shaweel.donsalami.recoursekeys.Dimensions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 
 @Mixin(ServerPlayer.class)
 public class DontDropInTheHub {
-	@Inject(method = "drop(Lnet/minecraft/world/item/ItemStack;ZZ)Lnet/minecraft/world/entity/item/ItemEntity;", at = @At("HEAD"), cancellable = true)
-	private void preventDrop(ItemStack itemStack, boolean randomly, boolean thrownFromHand, CallbackInfoReturnable<ItemEntity> callbackInfoReturnable) {
+	@Inject(method = "drop", at = @At("HEAD"), cancellable = true)
+	private void preventDrop(ItemStack itemStack, boolean thrownFromHand, Prediction prediction, CallbackInfoReturnable<ItemEntity> callbackInfoReturnable) {
 		ServerPlayer player = (ServerPlayer)(Object)this;
 
 		if (!player.level().dimension().equals(Dimensions.THE_HUB)) return;

@@ -39,6 +39,7 @@ public class BlacklistItems {
 
 			inventory.clearOrCountMatchingItems(
 				stack -> stack.is(item),
+				false,
 				Integer.MAX_VALUE,
 				inventory
 			);

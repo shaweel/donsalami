@@ -1,5 +1,6 @@
 {
 	"item.donsalami.salami": "Salami",
 	"key.category.donsalami.donsalami": "Don Salami",
-	"key.donsalami.reset_hub_challenge": "Reset Hub Challenge"
+	"key.donsalami.reset_split": "Reset Split",
+	"key.donsalami.reopen_welcome": "Reopen Welcome Screen"
 }

@@ -138,6 +138,7 @@ public class NetherEnter {
 
 			inv.clearOrCountMatchingItems(
 				stack -> stack.is(item),
+				false,
 				Integer.MAX_VALUE,
 				inv
 			);

@@ -16,13 +16,22 @@
 		"hidden": true
 	},
 	"criteria": {
-		"hsb": {
+		"hub": {
 			"trigger": "minecraft:location",
 			"conditions": {
 				"player": {
-					"minecraft:location": {
-						"dimension": "donsalami:the_hub"
-					}
+					"type": "minecraft:all_of",
+					"terms": [
+							{
+							"type": "minecraft:entity_properties",
+							"entity": "this",
+							"predicate": {
+								"location": {
+									"dimension": "donsalami:the_hub"
+								}
+							}
+						}
+					]
 				}
 			}
 		}

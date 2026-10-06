@@ -7,5 +7,6 @@ public class DonSalamiClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		KeyMappings.initialize();
 		CutsceneRenderer.initialize();
+		SplitClient.initialize();
 	}
 }

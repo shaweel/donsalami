@@ -20,9 +20,18 @@
 			"trigger": "minecraft:location",
 			"conditions": {
 				"player": {
-					"minecraft:location": {
-						"dimension": "minecraft:the_nether"
-					}
+					"type": "minecraft:all_of",
+					"terms": [
+							{
+							"type": "minecraft:entity_properties",
+							"entity": "this",
+							"predicate": {
+								"location": {
+									"dimension": "minecraft:the_nether"
+								}
+							}
+						}
+					]
 				}
 			}
 		}

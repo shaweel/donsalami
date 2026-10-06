@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import me.shaweel.donsalami.network.PressPayload;
-import me.shaweel.donsalami.network.ResetHubPayload;
+import me.shaweel.donsalami.network.ResetSplitPayload;
 import me.shaweel.donsalami.recoursekeys.Dimensions;
 import me.shaweel.donsalami.worldData.InHubChallenge;
 import me.shaweel.donsalami.worldData.HubExitTime;
@@ -174,8 +174,8 @@ public class TheHubChallenge {
 
 	public static void initialize() {
 		PayloadTypeRegistry.serverboundPlay().register(
-			ResetHubPayload.TYPE,
-			ResetHubPayload.CODEC
+			ResetSplitPayload.TYPE,
+			ResetSplitPayload.CODEC
 		);
 
 		PayloadTypeRegistry.serverboundPlay().register(
@@ -183,7 +183,7 @@ public class TheHubChallenge {
 			PressPayload.CODEC
 		);
 
-		ServerPlayNetworking.registerGlobalReceiver(ResetHubPayload.TYPE, (payload, context) -> {
+		ServerPlayNetworking.registerGlobalReceiver(ResetSplitPayload.TYPE, (payload, context) -> {
 			ServerPlayer player = context.player();
 			MinecraftServer server = player.level().getServer();
 

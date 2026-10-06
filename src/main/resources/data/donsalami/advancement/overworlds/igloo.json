@@ -20,19 +20,28 @@
 			"trigger": "minecraft:location",
 			"conditions": {
 				"player": {
-					"location": {
-						"dimension": "minecraft:overworld",
-						"position": {
-							"x": {
-								"min": -1000,
-								"max": 1000
-							},
-							"z": {
-								"min": -1000,
-								"max": 1000
+					"type": "minecraft:all_of",
+					"terms": [
+							{
+							"type": "minecraft:entity_properties",
+							"entity": "this",
+							"predicate": {
+								"location": {
+									"dimension": "minecraft:overworld",
+									"position": {
+										"x": {
+											"min": -1000,
+											"max": 1000
+										},
+										"z": {
+											"min": -1000,
+											"max": 1000
+										}
+									}
+								}
 							}
 						}
-					}
+					]
 				}
 			}
 		}

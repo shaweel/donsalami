@@ -8,15 +8,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import me.shaweel.donsalami.client.NewGameScreen;
-import net.minecraft.SharedConstants;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.PlainTextButton;
 import net.minecraft.client.gui.components.SplashRenderer;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.CreditsAndAttributionScreen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.gui.screens.options.OptionsScreen;
-import net.minecraft.client.gui.screens.worldselection.CreateWorldScreen;
 import net.minecraft.client.gui.screens.worldselection.SelectWorldScreen;
 import net.minecraft.network.chat.Component;
 
@@ -31,30 +31,33 @@ public class ModifyMainMenu {
 	
 	private static void newGame() {
 		Minecraft.getInstance().gui.setScreen(new NewGameScreen());
-		//Path savesDirectotry = Minecraft.getInstance().gameDirectory.toPath().resolve("saves");
 	}
 
 	@Inject(at = @At("HEAD"), method = "createNormalMenuOptions", cancellable = true)
 	private void changeButtons(int topPos, int spacing, CallbackInfoReturnable<Integer> callbackInfoReturnable) {
-		Button newGameButton = screen.invokeAddRenderableWidget(
+		screen.invokeAddRenderableWidget(
 			Button.builder(Component.literal("New Game"), var1 -> newGame())
 				.bounds(titleScreen.width / 2 - 100, topPos, 200, 20)
 				.build()
 		);
 
-		if (SharedConstants.IS_RUNNING_IN_IDE) {
-			screen.invokeAddRenderableWidget(
-				Button.builder(Component.literal("TW"), var1 -> CreateWorldScreen.testWorld(Minecraft.getInstance(), () -> Minecraft.getInstance().gui.setScreen(titleScreen)))
-					.bounds(newGameButton.getX() + newGameButton.getWidth() + 2, topPos, 20, 20)
-					.build()
-			);
-		}
+		int worldCount = Minecraft.getInstance().getLevelSource().findLevelCandidates().levels().size();
 
-		screen.invokeAddRenderableWidget(
+		Button loadGameButton = screen.invokeAddRenderableWidget(
 			Button.builder(Component.literal("Load Game"), var1 -> Minecraft.getInstance().gui.setScreen(new SelectWorldScreen(titleScreen)))
 				.bounds(titleScreen.width / 2 - 100, topPos = topPos + spacing, 200, 20)
 				.build()
 		);
+
+		if (worldCount <= 0) {
+			loadGameButton.setTooltip(Tooltip.create(
+				Component.literal("There are no saves to load, create a new save by pressing the ")
+				.append(Component.literal("New Game").withStyle(ChatFormatting.ITALIC)
+				.append(Component.literal(" button").withStyle(ChatFormatting.RESET))
+			)));
+
+			loadGameButton.active = false;
+		}
 
 		callbackInfoReturnable.setReturnValue(topPos);
 	}
@@ -72,7 +75,7 @@ public class ModifyMainMenu {
 		topPos = createNormalMenuOptions(topPos, 24);
 		
 		Button.Builder var10001 = Button.builder(
-			Component.translatable("menu.options"), var1x -> Minecraft.getInstance().gui.setScreen(new OptionsScreen(titleScreen, Minecraft.getInstance().options, false))
+			Component.translatable("menu.options"), var1x -> Minecraft.getInstance().gui.setScreen(new OptionsScreen(titleScreen, Minecraft.getInstance().options))
 		);
 		int var10002 = titleScreen.width / 2 - 100;
 		topPos += 36;

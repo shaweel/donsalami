@@ -16,23 +16,32 @@
 		"hidden": true
 	},
 	"criteria": {
-		"city": {
+		"desert_city": {
 			"trigger": "minecraft:location",
 			"conditions": {
 				"player": {
-					"location": {
-						"dimension": "minecraft:overworld",
-						"position": {
-							"x": {
-								"min": 99000,
-								"max": 101000
-							},
-							"z": {
-								"min": 99000,
-								"max": 101000
+					"type": "minecraft:all_of",
+					"terms": [
+							{
+							"type": "minecraft:entity_properties",
+							"entity": "this",
+							"predicate": {
+								"location": {
+									"dimension": "minecraft:overworld",
+									"position": {
+										"x": {
+											"min": 99000,
+											"max": 101000
+										},
+										"z": {
+											"min": 99000,
+											"max": 101000
+										}
+									}
+								}
 							}
 						}
-					}
+					]
 				}
 			}
 		}

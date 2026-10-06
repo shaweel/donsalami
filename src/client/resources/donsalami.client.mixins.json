@@ -6,7 +6,12 @@
 		"DetectAction",
 		"CameraAccessor",
 		"ScreenAccessor",
-		"ModifyMainMenu"
+		"ModifyMainMenu",
+		"ModifySelectWorldScreen",
+		"ModifyWorldSelectionList",
+		"ModifyBrightness",
+		"DontCloseWelcome",
+		"RemoveHungerAndXpBars"
 	],
 	"injectors": {
 		"defaultRequire": 1

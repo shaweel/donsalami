@@ -16,23 +16,32 @@
 		"hidden": true
 	},
 	"criteria": {
-		"owp": {
+		"buried_treasure": {
 			"trigger": "minecraft:location",
 			"conditions": {
 				"player": {
-					"location": {
-						"dimension": "minecraft:overworld",
-						"position": {
-							"x": {
-								"min": 199000,
-								"max": 201000
-							},
-							"z": {
-								"min": 199000,
-								"max": 201000
+					"type": "minecraft:all_of",
+					"terms": [
+							{
+							"type": "minecraft:entity_properties",
+							"entity": "this",
+							"predicate": {
+								"location": {
+									"dimension": "minecraft:overworld",
+									"position": {
+										"x": {
+											"min": 199000,
+											"max": 201000
+										},
+										"z": {
+											"min": 199000,
+											"max": 201000
+										}
+									}
+								}
 							}
 						}
-					}
+					]
 				}
 			}
 		}

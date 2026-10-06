@@ -55,7 +55,7 @@ public class DontBreakBastion {
 
 		Structure bastion = structures.getOrThrow(Structures.DUNGEON_BASTION).value();
 
-		return structureManager.getStructureWithPieceAt(position, bastion).isValid();
+		return structureManager.getStructureAt(position, bastion).isValid();
 	}
 
 	public static boolean isProtected(Level level, BlockPos position) {
