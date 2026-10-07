@@ -3,15 +3,15 @@
 	"package": "me.shaweel.donsalami.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-		"DetectAction",
-		"CameraAccessor",
-		"ScreenAccessor",
-		"ModifyMainMenu",
-		"ModifySelectWorldScreen",
-		"ModifyWorldSelectionList",
-		"ModifyBrightness",
-		"DontCloseWelcome",
-		"RemoveHungerAndXpBars"
+		"accessors.CameraAccessor",
+		"accessors.ScreenAccessor",
+		"gui.ModifyMainMenu",
+		"gui.ModifySelectWorldScreen",
+		"gui.ModifyWorldSelectionList",
+		"gui.ModifyBrightness",
+		"gui.DontCloseWelcome",
+		"gui.RemoveHungerAndXpBars",
+		"miscellaneous.DetectAction"
 	],
 	"injectors": {
 		"defaultRequire": 1

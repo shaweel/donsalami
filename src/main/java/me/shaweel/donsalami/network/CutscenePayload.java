@@ -1,6 +1,6 @@
 package me.shaweel.donsalami.network;
 
-import me.shaweel.donsalami.miscellaneous.Cutscene;
+import me.shaweel.donsalami.cutscene.Cutscene;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;

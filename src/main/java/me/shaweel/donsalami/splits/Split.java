@@ -2,6 +2,9 @@ package me.shaweel.donsalami.splits;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.GlobalPos;
+
 public enum Split {
 	RUINED_PORTAL("Ruined Portal", "Enter The Nether"),
 	ELYTRA_COURSE("Elytra Course", "Enter The Nether"),
@@ -10,7 +13,7 @@ public enum Split {
 	DESERT_CITY("Desert City", "Enter The Nether"),
 	IGLOO("Igloo", "Enter The Nether"),
 	THE_HUB("The Hub", "Enter The Nether"),
-	THE_NETHER("The Nether", "Find The Bastion") ;
+	THE_NETHER("The Nether", "Find The Bastion");
 
 	public final String displayName;
 	public final String objective;
@@ -22,12 +25,12 @@ public enum Split {
 		return i < values().length ? values()[i] : null;
 	}
 
-	private Split(String displayName, String objective) {
+	private Split(String displayName, String objective, GlobalPos position) {
 		this.displayName = displayName;
 		this.objective = objective;
 	}
 
-	private Split(String displayName, String objective, Runnable onStart, Runnable onReset) {
+	private Split(String displayName, String objective, GlobalPos position, Runnable onStart, Runnable onReset) {
 		this.displayName = displayName;
 		this.objective = displayName;
 		this.onStart = onStart;

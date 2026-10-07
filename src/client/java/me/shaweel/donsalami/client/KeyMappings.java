@@ -3,6 +3,7 @@ package me.shaweel.donsalami.client;
 import com.mojang.blaze3d.platform.InputConstants;
 
 import me.shaweel.donsalami.DonSalami;
+import me.shaweel.donsalami.client.gui.WelcomeScreen;
 import me.shaweel.donsalami.network.ResetSplitPayload;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;

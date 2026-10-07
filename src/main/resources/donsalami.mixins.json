@@ -3,15 +3,21 @@
 	"package": "me.shaweel.donsalami.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"NetherEnter",
-		"ShortVillagerCuring",
-		"DontDropInTheHub",
-		"LightPortalAnywhere",
-		"VillagerTradeDetection",
-		"ElytraDetectDeath",
-		"DontBreakBastionByExplosion",
-		"BlacklistItems",
-		"DisablePearlsBeforeMalgosha"
+		"healing.EatWhenLow",
+		"healing.HealEating",
+		"healing.StopHunger",
+
+		"miscellaneous.VillagerTradeDetection",
+
+		"patches.BlacklistItems",
+		"patches.DisablePearlsBeforeMalgosha",
+		"patches.LightPortalAnywhere",
+		"patches.ShortVillagerCuring",
+		
+		"the_game.DontBreakBastionByExplosion",
+		"the_game.DontDropInTheHub",
+		"the_game.ElytraDetectDeath",
+		"the_game.NetherEnter"
 	],
 	"injectors": {
 		"defaultRequire": 1
