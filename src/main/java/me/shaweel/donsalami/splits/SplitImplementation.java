@@ -24,9 +24,4 @@ public class SplitImplementation {
 		//TODO reset the split (kill player)
 		split.onReset.run();
 	}
-
-	public static void start(Split split) {
-		//TODO start the split (set respawn, inv, etc...)
-		split.onStart.run();
-	}
 }
