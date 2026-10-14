@@ -11,7 +11,8 @@
 		"gui.ModifyBrightness",
 		"gui.DontCloseWelcome",
 		"gui.RemoveHungerAndXpBars",
-		"miscellaneous.DetectAction"
+		"miscellaneous.DetectAction",
+		"patches.RemoveDeathCameraTilt"
 	],
 	"injectors": {
 		"defaultRequire": 1

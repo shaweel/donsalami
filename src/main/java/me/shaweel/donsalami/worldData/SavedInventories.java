@@ -13,41 +13,47 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
 
-public class TheHubEnterInventory extends SavedData {
-	private static final Codec<TheHubEnterInventory> CODEC = Codec.unboundedMap(Codec.STRING.xmap(Integer::parseInt, String::valueOf), ItemStack.CODEC).xmap(
-		TheHubEnterInventory::new, 
-		TheHubEnterInventory::get
-	);
+public class SavedInventories extends SavedData {
+	private static final Codec<SavedInventories> CODEC = Codec.unboundedMap(
+		Codec.STRING,
+		Codec.unboundedMap(
+			Codec.STRING.xmap(
+				Integer::parseInt,
+				String::valueOf
+			), 
+			ItemStack.CODEC
+		)
+	).xmap(SavedInventories::new, SavedInventories::get);
 
-	private static final SavedDataType<TheHubEnterInventory> TYPE = new SavedDataType<>(
+	private static final SavedDataType<SavedInventories> TYPE = new SavedDataType<>(
 		Identifier.fromNamespaceAndPath(DonSalami.MOD_ID, "the_hub_enter_inventory"),
-		TheHubEnterInventory::new,
+		SavedInventories::new,
 		CODEC,
 		null 
 	);
 
-	private Map<Integer, ItemStack> value = new HashMap<>();
+	private Map<String, Map<Integer, ItemStack>> value = new HashMap<>();
 
-	private TheHubEnterInventory() {}
+	private SavedInventories() {}
 
-	private TheHubEnterInventory(Map<Integer, ItemStack> newValue) {
+	private SavedInventories(Map<String, Map<Integer, ItemStack>> newValue) {
 		this.value = newValue;
 	}
 
-	public void set(Map<Integer, ItemStack> newValue) {
+	public void set(Map<String, Map<Integer, ItemStack>> newValue) {
 		this.value = newValue;
 		this.setDirty();
 	}
 
-	public Map<Integer, ItemStack> get() {
+	public Map<String, Map<Integer, ItemStack>> get() {
 		return this.value;
 	}
 
-	public static TheHubEnterInventory getData(MinecraftServer server) {
+	public static SavedInventories getData(MinecraftServer server) {
 		ServerLevel level = server.getLevel(ServerLevel.NETHER);
 
 		if (level == null) {
-			return new TheHubEnterInventory();
+			return new SavedInventories();
 		}
 		
 		return level.getDataStorage().computeIfAbsent(TYPE);

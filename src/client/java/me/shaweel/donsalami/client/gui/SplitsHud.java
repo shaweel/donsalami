@@ -42,8 +42,8 @@ public class SplitsHud {
 			Component.literal("Splits").withStyle(ChatFormatting.BOLD).withColor(TextColor.YELLOW),
 
 			Component.literal("Splits: ").withColor(TextColor.GRAY)
-			.append(Component.literal(String.valueOf(Split.valueOf(currentSplit).ordinal() + 1)).withColor(TextColor.WHITE))
-			.append(Component.literal("/" + String.valueOf(Split.values().length)).withColor(TextColor.WHITE)),
+			.append(Component.literal(String.valueOf(Split.valueOf(currentSplit).ordinal())).withColor(TextColor.WHITE))
+			.append(Component.literal("/" + String.valueOf(Split.values().length - 1)).withColor(TextColor.WHITE)),
 
 			Component.literal("Current Split: ").withColor(TextColor.GRAY)
 			.append(Component.literal(Split.valueOf(currentSplit).displayName).withColor(TextColor.WHITE)),

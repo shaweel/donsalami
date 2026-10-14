@@ -2,11 +2,10 @@ package me.shaweel.donsalami.the_game.the_hub;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import me.shaweel.donsalami.network.PressPayload;
-import me.shaweel.donsalami.network.ResetSplitPayload;
 import me.shaweel.donsalami.recoursekeys.Dimensions;
+import me.shaweel.donsalami.utils.Utils;
 import me.shaweel.donsalami.worldData.InHubChallenge;
 import me.shaweel.donsalami.worldData.HubExitTime;
 import me.shaweel.donsalami.worldData.OldBrokenHaybales;
@@ -14,7 +13,6 @@ import me.shaweel.donsalami.worldData.PausedChallenge;
 import me.shaweel.donsalami.worldData.SoldPotatoes;
 import me.shaweel.donsalami.worldData.SoldSeeds;
 import me.shaweel.donsalami.worldData.SoldWheat;
-import me.shaweel.donsalami.worldData.TheHubEnterInventory;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -34,7 +32,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.decoration.Mannequin;
 import net.minecraft.world.entity.npc.villager.Villager;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -148,21 +145,8 @@ public class TheHubChallenge {
 		notifyResetting(player);
 	}
 
-	public static void resetInventory(ServerPlayer player) {
-		player.closeContainer();
-		player.getInventory().clearContent();
-
-		Map<Integer, ItemStack> oldInventory = TheHubEnterInventory.getData(player.level().getServer()).get();
-		for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
-			if (!oldInventory.containsKey(i)) continue;
-			player.getInventory().setItem(i, oldInventory.get(i).copy());
-		}
-	}
-
-	private static void actuallyReset(MinecraftServer server, ServerPlayer player) {
+	private static void actuallyReset(MinecraftServer server, ServerPlayer player) {		
 		resetMap(server);
-
-		resetInventory(player);
 
 		PausedChallenge.getData(server).set(true);
 		HubExitTime.getData(server).set(timeLimit);
@@ -174,24 +158,9 @@ public class TheHubChallenge {
 
 	public static void initialize() {
 		PayloadTypeRegistry.serverboundPlay().register(
-			ResetSplitPayload.TYPE,
-			ResetSplitPayload.CODEC
-		);
-
-		PayloadTypeRegistry.serverboundPlay().register(
 			PressPayload.TYPE, 
 			PressPayload.CODEC
 		);
-
-		ServerPlayNetworking.registerGlobalReceiver(ResetSplitPayload.TYPE, (payload, context) -> {
-			ServerPlayer player = context.player();
-			MinecraftServer server = player.level().getServer();
-
-			beforeReset(server, player);
-
-			if (!InHubChallenge.getData(server).get()) return;
-			HubExitTime.getData(server).set(0);
-		});
 
 		ServerPlayNetworking.registerGlobalReceiver(PressPayload.TYPE, (payload, context) -> {
 			ServerPlayer player = context.player();
@@ -201,8 +170,8 @@ public class TheHubChallenge {
 		});
 
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
-			if (server.getPlayerList().getPlayers().isEmpty()) return;
-			ServerPlayer player = server.getPlayerList().getPlayers().get(0);
+			ServerPlayer player = Utils.getPlayer(server);
+			if (player == null) return;
 
 			if (InHubChallenge.getData(server).get() == false || !player.level().dimension().equals(Dimensions.THE_HUB)) return;
 

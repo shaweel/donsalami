@@ -2,11 +2,13 @@ package me.shaweel.donsalami;
 
 import me.shaweel.donsalami.healing.FoodHealing;
 import me.shaweel.donsalami.items.ModItems;
+import me.shaweel.donsalami.miscellaneous.ModCommands;
 import me.shaweel.donsalami.recoursekeys.Dimensions;
 import me.shaweel.donsalami.recoursekeys.Structures;
-import me.shaweel.donsalami.the_game.Elytra;
-import me.shaweel.donsalami.the_game.ParkourKillZone;
+import me.shaweel.donsalami.splits.SplitImplementation;
 import me.shaweel.donsalami.the_game.bastion.DontBreakBastion;
+import me.shaweel.donsalami.the_game.elytra.Elytra;
+import me.shaweel.donsalami.the_game.parkour.ParkourKillZone;
 import me.shaweel.donsalami.the_game.the_hub.TheHubChallenge;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
@@ -24,6 +26,8 @@ public class DonSalami implements ModInitializer {
 		ParkourKillZone.initialize();
 		Elytra.initialize();
 		FoodHealing.initialize();
+		SplitImplementation.initialize();
+		ModCommands.initialize();
 	}
 
 	public static Identifier id(String path) {

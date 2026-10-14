@@ -1,5 +1,6 @@
-package me.shaweel.donsalami.the_game;
+package me.shaweel.donsalami.the_game.elytra;
 
+import me.shaweel.donsalami.utils.Utils;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
@@ -93,8 +94,8 @@ public class Elytra {
 
 	public static void initialize() {
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
-			if (server.getPlayerList().getPlayers().isEmpty()) return;
-			ServerPlayer player = server.getPlayerList().getPlayers().get(0);
+			ServerPlayer player = Utils.getPlayer(server);
+			if (player == null) return;
 
 			double x = player.getX();
 			double y = player.getY();
