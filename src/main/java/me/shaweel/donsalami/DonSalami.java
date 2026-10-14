@@ -10,6 +10,7 @@ import me.shaweel.donsalami.the_game.bastion.DontBreakBastion;
 import me.shaweel.donsalami.the_game.elytra.Elytra;
 import me.shaweel.donsalami.the_game.parkour.ParkourKillZone;
 import me.shaweel.donsalami.the_game.the_hub.TheHubChallenge;
+import me.shaweel.donsalami.utils.CurrentServer;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
 
@@ -18,6 +19,7 @@ public class DonSalami implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		CurrentServer.initialize();
 		Dimensions.initialize();
 		Structures.initialize();
 		DontBreakBastion.initialize();

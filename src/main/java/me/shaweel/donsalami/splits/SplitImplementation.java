@@ -268,7 +268,7 @@ public class SplitImplementation {
 
 			if (currentBlockState == blockState) continue;
 
-			level.setBlock(blockPos, blockState, 3);
+			level.setBlockAndUpdate(blockPos, blockState);
 		}
 
 		for (int x = minX; x <= maxX; x++) {
@@ -279,7 +279,7 @@ public class SplitImplementation {
 
 					if (usedBlockPositions.contains(blockPos) || isCurrentlyAir) continue;
 
-					level.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
+					level.setBlockAndUpdate(blockPos, Blocks.AIR.defaultBlockState());
 				}
 			}
 		}
